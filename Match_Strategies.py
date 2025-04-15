@@ -13,7 +13,11 @@ import tempfile
 # Replace with your actual API key or use st.secrets
 # GOOGLE_API_KEY = st.secrets["google_api_key"]
 
-GOOGLE_API_KEY = "AIzaSyACUlR4WBNoNtp0zopBQVoUT-GE2H4HCZs"
+GOOGLE_API_KEY = st.secrets["google"]["api_key"]
+
+# Set the key into the environment so Anthropic can read it
+os.environ["ANTHROPIC_API_KEY"] = st.secrets["anthropic"]["api_key"]
+
 
 st.set_page_config(layout="wide", page_title="Tennis Strategy Analyzer")
 st.title("🎾 Tennis Point Strategy Analyzer")
